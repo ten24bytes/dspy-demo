@@ -1,172 +1,353 @@
 # DSPy Demo Project
 
-A comprehensive demonstration project for DSPy, showcasing various advanced features and patterns for programming foundation models.
+A comprehensive collection of DSPy tutorials, examples, and runnable code snippets for learning and reference.
 
-## Features and Examples
+## Overview
 
-1. **Basic DSPy Usage** (`notebooks/01_dspy_basics.ipynb`)
+This project contains implementations of all major DSPy tutorials and features, organized into notebooks and scripts for easy learning and experimentation. Each example is self-contained and includes detailed explanations.
 
-   - Simple question answering
-   - Chain of thought reasoning
-   - Custom module creation
-   - Working with signatures
+**✨ Recently Updated**: This project has been upgraded to **Python 3.12.11** with all dependencies updated to their latest compatible versions. The project uses [UV](https://docs.astral.sh/uv/) for fast, reliable dependency management and virtual environment handling.
 
-2. **Teleprompting** (`notebooks/02_teleprompting.ipynb`)
+## Key Features
 
-   - Basic classification with Chain-of-Thought
-   - Bootstrapped few-shot learning
-   - Adaptive teleprompting
-   - Learning from feedback
-
-3. **RAG Examples** (`notebooks/03_rag_examples.ipynb`)
-
-   - Basic RAG with single passage retrieval
-   - Multi-hop reasoning
-   - Self-correcting RAG
-   - Progressive query refinement
-
-4. **Advanced Patterns** (`notebooks/04_advanced_patterns.ipynb`)
-   - Signature chaining
-   - Dynamic few-shot learning
-   - Error handling and self-correction
-   - Prompt optimization
-
-## Quick Start
-
-1. Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-2. Set up your API keys in a `.env` file:
-
-```env
-OPENAI_API_KEY=your_api_key_here
-ANTHROPIC_API_KEY=your_anthropic_key_here  # Optional
-```
-
-3. Start with basic examples:
-
-```python
-from src.config import setup_dspy
-from src.basic_qa import BasicQA
-
-# Initialize DSPy
-lm = setup_dspy()
-
-# Create a simple QA module
-qa = BasicQA()
-result = qa("What is DSPy?")
-print(result['answer'])
-```
-
-## Advanced Usage Examples
-
-### RAG with Multi-hop Retrieval:
-
-```python
-from src.advanced_rag import MultiHopRetriever
-
-retriever = MultiHopRetriever()
-result = retriever("What are the environmental impacts of electric cars?")
-print(f"Answer: {result['answer']}")
-print(f"Number of contexts used: {len(result['contexts'])}")
-```
-
-### Self-improving Classification:
-
-```python
-from src.teleprompter_example import BootstrappedClassifier
-
-# Create and train classifier
-classifier = BootstrappedClassifier()
-classifier.compile_with_examples([
-    {"text": "Amazing product!", "label": "positive"},
-    {"text": "Terrible experience", "label": "negative"}
-])
-
-# Use the classifier
-result = classifier("This exceeded my expectations")
-print(f"Label: {result['label']}, Confidence: {result['confidence']}")
-```
-
-### Adaptive Prompting:
-
-```python
-from src.optimization_patterns import AdaptivePrompting
-
-adaptive = AdaptivePrompting()
-result = adaptive("Explain quantum computing")
-print(f"Output: {result['output']}")
-print(f"Method used: {result['method']}")
-```
+- 🚀 **Python 3.12.11** - Latest stable Python with improved performance
+- 📦 **UV Package Manager** - Lightning-fast dependency resolution and installation
+- 🔒 **Locked Dependencies** - Reproducible builds with `uv.lock`
+- 📚 **Comprehensive Examples** - 30+ tutorials covering all DSPy features
+- 🔧 **Development Ready** - Pre-commit hooks, testing, and type checking included
+- 📖 **Dual Format** - Both Jupyter notebooks and Python scripts for each example
 
 ## Project Structure
 
 ```
-src/
-├── basic_qa.py         # Basic Q&A implementations
-├── advanced_rag.py     # Advanced RAG patterns
-├── teleprompter_example.py  # Teleprompting examples
-├── optimization_patterns.py  # Advanced optimization patterns
-└── config.py          # Configuration utilities
-
-notebooks/
-├── 01_dspy_basics.ipynb
-├── 02_teleprompting.ipynb
-├── 03_rag_examples.ipynb
-└── 04_advanced_patterns.ipynb
+dspy-demo/
+├── notebooks/          # Jupyter notebooks for interactive learning
+│   ├── 01_basics/      # Basic DSPy concepts
+│   ├── 02_building/    # Building AI programs
+│   ├── 03_optimization/ # Optimization techniques
+│   ├── 04_advanced/    # Advanced features
+│   └── 05_deployment/  # Deployment and production
+├── scripts/            # Python scripts for each tutorial
+│   ├── 01_basics/
+│   ├── 02_building/
+│   ├── 03_optimization/
+│   ├── 04_advanced/
+│   └── 05_deployment/
+├── data/               # Sample datasets
+├── models/             # Saved models and configurations
+└── utils/              # Helper utilities
 ```
 
-## Configuration
+## Getting Started
 
-The project supports multiple LLM providers and configuration options. See `src/config.py` for details.
+### Prerequisites
 
-Example configuration:
+- **Python 3.12.11 or higher** (but less than 3.14)
+- **UV package manager** - Fast Python package manager ([installation guide](https://docs.astral.sh/uv/getting-started/installation/))
 
-```python
-from src.config import DSPyConfig
+### Quick Setup
 
-config = DSPyConfig()
-config.initialize(
-    model_name="openai/gpt-4",
-    temperature=0.7,
-    retriever_config={
-        "collection_name": "my_docs",
-        "docs_dir": "path/to/docs"
-    }
-)
+Follow these steps to get the project running on your machine:
+
+#### 1. Clone the Repository
+
+```bash
+git clone <repository-url>
+cd dspy-demo
 ```
 
-## Extending the Examples
+#### 2. Install Python 3.12.11 (if needed)
 
-1. Create custom metrics:
+UV can automatically install Python for you:
 
-```python
-config.register_metric("semantic_similarity", your_similarity_function)
+```bash
+# UV will install Python 3.12.11 if not already available
+uv python install 3.12.11
 ```
 
-2. Add callbacks for monitoring:
+Or verify your Python version:
 
-```python
-config.register_callback(lambda x: print(f"Processing: {x}"))
+```bash
+python --version  # Should be 3.12.11 or higher
 ```
 
-3. Create custom DSPy modules:
+#### 3. Install Dependencies
 
-```python
-class CustomModule(dspy.Module):
-    def __init__(self):
-        super().__init__()
-        self.process = dspy.ChainOfThought("input -> output")
+UV will create a virtual environment and install all dependencies:
 
-    def forward(self, input_text):
-        return self.process(input=input_text).output
+```bash
+# This reads pyproject.toml and uv.lock to install exact versions
+uv sync
 ```
 
-## Learn More
+This command will:
 
-- [DSPy Documentation](https://dspy.ai/)
-- [DSPy GitHub Repository](https://github.com/stanfordnlp/dspy)
-- [Stanford DSPy Research](https://stanford.edu/~dshahara/dspy.pdf)
+- Create a virtual environment with Python 3.12.11
+- Install all production and development dependencies
+- Ensure reproducible builds using the lockfile
+
+#### 4. Verify Installation
+
+```bash
+# Check that DSPy and other key packages are installed correctly
+uv run python -c "import dspy; print(f'DSPy version: {dspy.__version__}')"
+uv run python -c "import numpy; print(f'NumPy version: {numpy.__version__}')"
+```
+
+#### 5. Set Up Environment Variables
+
+Create a `.env` file for your API keys:
+
+```bash
+# Copy the example file (if it exists)
+cp .env.example .env
+
+# Or create a new .env file
+touch .env
+```
+
+Edit `.env` and add your API keys (see [API Keys Required](#api-keys-required) section below).
+
+### Running Examples
+
+#### Option 1: Using UV Run (Recommended)
+
+UV can run commands in the project environment without activation:
+
+```bash
+# Run Jupyter Lab
+uv run jupyter lab
+
+# Run a specific script
+uv run python scripts/01_basics/getting_started.py
+
+# Run with additional arguments
+uv run python scripts/02_building/rag_system.py --model gpt-3.5-turbo
+```
+
+#### Option 2: Activate Environment
+
+```bash
+# Activate the virtual environment
+uv shell
+
+# Now you can run commands directly
+jupyter lab
+python scripts/01_basics/getting_started.py
+```
+
+### Development Setup
+
+If you plan to contribute or modify the code:
+
+```bash
+# Install with development dependencies (already included in uv sync)
+uv sync --dev
+
+# Install pre-commit hooks
+uv run pre-commit install
+
+# Run tests
+uv run pytest
+
+# Format code
+uv run black .
+
+# Type checking
+uv run mypy .
+```
+
+### Updating Dependencies
+
+To update to the latest compatible versions:
+
+```bash
+# Update all dependencies
+uv lock --upgrade
+
+# Sync the updated lockfile
+uv sync
+```
+
+## Tutorial Categories
+
+### 1. Basic DSPy Concepts
+
+- Getting started with DSPy
+- Signatures and modules
+- Language model configuration
+- Basic prediction and evaluation
+
+### 2. Building AI Programs
+
+- **Customer Service Agent** - Building intelligent agents
+- **Custom Modules** - Creating custom DSPy modules
+- **RAG Systems** - Retrieval-Augmented Generation
+- **RAG as Agent** - Advanced RAG with agent capabilities
+- **Entity Extraction** - Named entity recognition
+- **Classification** - Text classification tasks
+- **Multi-Hop RAG** - Complex multi-step reasoning
+- **Privacy-Conscious Delegation** - Secure AI workflows
+- **Program of Thought** - Mathematical reasoning
+- **Image Generation** - Prompt iteration for images
+- **Audio Processing** - Speech and audio tasks
+
+### 3. Optimization Techniques
+
+- **Math Reasoning** - Optimizing mathematical problem solving
+- **Classification Finetuning** - Model finetuning for classification
+- **Advanced Tool Use** - Complex tool integration
+- **Finetuning Agents** - Agent optimization
+
+### 4. Advanced Features
+
+- **RL Optimization** - Reinforcement learning approaches
+- **RL Privacy Delegation** - RL for privacy-conscious systems
+- **RL Multi-Hop** - RL for complex reasoning
+
+### 5. Development & Deployment
+
+- **MCP Integration** - Model Context Protocol
+- **Output Refinement** - Best-of-N and refinement techniques
+- **Saving and Loading** - Model persistence
+- **Caching** - Performance optimization
+- **Deployment** - Production deployment strategies
+- **Observability** - Debugging and monitoring
+- **Optimizer Tracking** - Tracking optimization progress
+- **Streaming** - Real-time processing
+- **Async Processing** - Asynchronous operations
+
+### 6. Real-World Examples
+
+- **Financial Analysis** - Yahoo Finance integration
+- **Email Extraction** - Email information processing
+- **Code Generation** - Automated code creation
+- **AI Text Game** - Creative text-based games
+- **Memory-Enabled Agents** - Persistent memory systems
+
+## API Keys Required
+
+You'll need API keys for various services depending on which examples you want to run. Add them to your `.env` file:
+
+```env
+# OpenAI (required for most examples)
+OPENAI_API_KEY=your_openai_key_here
+
+# Anthropic Claude (for Claude examples)
+ANTHROPIC_API_KEY=your_anthropic_key_here
+
+# Google Gemini (for Google examples)
+GOOGLE_API_KEY=your_google_key_here
+
+# Groq (for Groq examples)
+GROQ_API_KEY=your_groq_key_here
+
+# Optional: Other services
+COHERE_API_KEY=your_cohere_key_here
+TOGETHER_API_KEY=your_together_key_here
+```
+
+### Getting API Keys
+
+- **OpenAI**: Sign up at [platform.openai.com](https://platform.openai.com/)
+- **Anthropic**: Sign up at [console.anthropic.com](https://console.anthropic.com/)
+- **Google**: Get API key from [Google AI Studio](https://aistudio.google.com/)
+- **Groq**: Sign up at [console.groq.com](https://console.groq.com/)
+
+## Troubleshooting
+
+### Common Issues
+
+#### Python Version Issues
+
+```bash
+# Check your Python version
+python --version
+
+# If you have multiple Python versions, use UV to manage them
+uv python list
+uv python install 3.12.11
+```
+
+#### Dependency Conflicts
+
+```bash
+# Clean install - remove existing environment
+rm -rf .venv
+uv sync
+
+# Or force reinstall
+uv sync --reinstall
+```
+
+#### Missing API Keys
+
+```bash
+# Verify your .env file exists and has the right format
+cat .env
+
+# Test API key (replace with your key)
+uv run python -c "import openai; print('OpenAI client created successfully')"
+```
+
+#### Jupyter Notebook Issues
+
+```bash
+# Install Jupyter kernel for the virtual environment
+uv run python -m ipykernel install --user --name dspy-demo
+
+# Start Jupyter with the correct kernel
+uv run jupyter lab
+```
+
+#### Package Import Errors
+
+```bash
+# Verify packages are installed
+uv run pip list | grep dspy
+uv run python -c "import dspy; print('Success!')"
+
+# Reinstall if needed
+uv sync --reinstall
+```
+
+### Performance Tips
+
+- **GPU Support**: For faster model inference, install PyTorch with CUDA support
+- **Memory**: Some examples require significant RAM (8GB+ recommended)
+- **API Limits**: Be aware of rate limits when running multiple examples
+
+## Project Information
+
+### Technical Specifications
+
+- **Python Version**: 3.12.11+ (< 3.14)
+- **Package Manager**: UV (uv.lock ensures reproducible installs)
+- **Key Dependencies**:
+  - DSPy: 2.6.27+ (latest framework version)
+  - OpenAI: 1.93.0+ (latest API client)
+  - PyTorch: 2.7.1+ (latest stable)
+  - Transformers: 4.53.0+ (latest Hugging Face)
+  - NumPy: 2.2.6+ (latest 2.x series)
+  - Pandas: 2.3.0+ (latest stable)
+
+### Recent Updates
+
+This project was recently upgraded from Python 3.11 to 3.12.11 with comprehensive dependency updates. See `PYTHON_UPGRADE_SUMMARY.md` for detailed information about:
+
+- Version migrations and compatibility fixes
+- Updated development tools (Black, MyPy, pytest)
+- Modern package specifications and resolved conflicts
+
+## Contributing
+
+Feel free to submit issues and enhancement requests!
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- [DSPy Team](https://github.com/stanfordnlp/dspy) for the amazing framework
+- [Astral](https://astral.sh/) for UV package manager
