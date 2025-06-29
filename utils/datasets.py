@@ -8,32 +8,31 @@ import json
 import os
 
 def get_sample_qa_data() -> List[dspy.Example]:
-    """Get sample question-answering data."""
-    qa_pairs = [
-        {
-            "question": "What is the capital of France?",
-            "answer": "Paris"
-        },
-        {
-            "question": "Who wrote Romeo and Juliet?",
-            "answer": "William Shakespeare"
-        },
-        {
-            "question": "What is 2 + 2?",
-            "answer": "4"
-        },
-        {
-            "question": "What is the largest planet in our solar system?",
-            "answer": "Jupiter"
-        },
-        {
-            "question": "In what year did World War II end?",
-            "answer": "1945"
-        }
-    ]
+    """Get sample question-answering data from JSON file."""
+    try:
+        data_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "qa_dataset.json")
+        with open(data_path, 'r', encoding='utf-8') as f:
+            qa_pairs = json.load(f)
+        
+        return [dspy.Example(
+            question=item["question"], 
+            answer=item["answer"],
+            context=item.get("context", "")
+        ).with_inputs('question', 'context') for item in qa_pairs]
     
-    return [dspy.Example(question=item["question"], answer=item["answer"]) 
-            for item in qa_pairs]
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        print(f"Warning: Could not load QA dataset from file ({e}). Using fallback data.")
+        # Fallback to hardcoded data
+        qa_pairs = [
+            {"question": "What is the capital of France?", "answer": "Paris"},
+            {"question": "Who wrote Romeo and Juliet?", "answer": "William Shakespeare"},
+            {"question": "What is 2 + 2?", "answer": "4"},
+            {"question": "What is the largest planet in our solar system?", "answer": "Jupiter"},
+            {"question": "In what year did World War II end?", "answer": "1945"}
+        ]
+        
+        return [dspy.Example(question=item["question"], answer=item["answer"]) 
+                for item in qa_pairs]
 
 def get_sample_classification_data() -> List[dspy.Example]:
     """Get sample text classification data."""

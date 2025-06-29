@@ -1,0 +1,48 @@
+[
+  {
+    "text": "Apple Inc. was founded by Steve Jobs, Steve Wozniak, and Ronald Wayne in April 1976.",
+    "entities": [
+      { "text": "Apple Inc.", "label": "ORG", "start": 0, "end": 10 },
+      { "text": "Steve Jobs", "label": "PERSON", "start": 27, "end": 37 },
+      { "text": "Steve Wozniak", "label": "PERSON", "start": 39, "end": 52 },
+      { "text": "Ronald Wayne", "label": "PERSON", "start": 58, "end": 70 },
+      { "text": "April 1976", "label": "DATE", "start": 74, "end": 84 }
+    ]
+  },
+  {
+    "text": "The meeting will be held at Google headquarters in Mountain View, California on Friday.",
+    "entities": [
+      { "text": "Google", "label": "ORG", "start": 28, "end": 34 },
+      { "text": "Mountain View", "label": "GPE", "start": 51, "end": 64 },
+      { "text": "California", "label": "GPE", "start": 66, "end": 76 },
+      { "text": "Friday", "label": "DATE", "start": 80, "end": 86 }
+    ]
+  },
+  {
+    "text": "Dr. Sarah Johnson published her research on artificial intelligence at Stanford University.",
+    "entities": [
+      { "text": "Sarah Johnson", "label": "PERSON", "start": 4, "end": 17 },
+      { "text": "Stanford University", "label": "ORG", "start": 71, "end": 90 }
+    ]
+  },
+  {
+    "text": "Microsoft announced a $50 billion investment in cloud computing infrastructure.",
+    "entities": [
+      { "text": "Microsoft", "label": "ORG", "start": 0, "end": 9 },
+      { "text": "$50 billion", "label": "MONEY", "start": 22, "end": 33 }
+    ]
+  },
+  {
+    "text": "The New York Stock Exchange opened at 9:30 AM Eastern Time.",
+    "entities": [
+      {
+        "text": "New York Stock Exchange",
+        "label": "ORG",
+        "start": 4,
+        "end": 27
+      },
+      { "text": "9:30 AM", "label": "TIME", "start": 38, "end": 45 },
+      { "text": "Eastern Time", "label": "TIME", "start": 46, "end": 58 }
+    ]
+  }
+]

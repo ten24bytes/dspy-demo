@@ -1,0 +1,52 @@
+[
+  {
+    "question": "What is the capital of France?",
+    "answer": "Paris",
+    "context": "France is a country in Western Europe with Paris as its capital and largest city."
+  },
+  {
+    "question": "Who wrote Romeo and Juliet?",
+    "answer": "William Shakespeare",
+    "context": "Romeo and Juliet is a tragedy written by William Shakespeare early in his career about two young Italian star-crossed lovers."
+  },
+  {
+    "question": "What is the largest planet in our solar system?",
+    "answer": "Jupiter",
+    "context": "Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a gas giant with a mass more than two and a half times that of all the other planets combined."
+  },
+  {
+    "question": "In what year did World War II end?",
+    "answer": "1945",
+    "context": "World War II ended in 1945 with the surrender of Germany in May and Japan in September following the atomic bombings."
+  },
+  {
+    "question": "What is photosynthesis?",
+    "answer": "Photosynthesis is the process by which plants use sunlight, water, and carbon dioxide to produce glucose and oxygen.",
+    "context": "Photosynthesis is a biological process that occurs in plants, algae, and some bacteria, converting light energy into chemical energy."
+  },
+  {
+    "question": "Who invented the telephone?",
+    "answer": "Alexander Graham Bell",
+    "context": "Alexander Graham Bell was a Scottish-born inventor who is credited with patenting the first practical telephone in 1876."
+  },
+  {
+    "question": "What is the speed of light?",
+    "answer": "The speed of light in a vacuum is approximately 299,792,458 meters per second",
+    "context": "The speed of light in a vacuum is a fundamental physical constant denoted by c."
+  },
+  {
+    "question": "What is the chemical symbol for gold?",
+    "answer": "Au",
+    "context": "Gold is a chemical element with the symbol Au (from Latin: aurum) and atomic number 79."
+  },
+  {
+    "question": "Who painted the Mona Lisa?",
+    "answer": "Leonardo da Vinci",
+    "context": "The Mona Lisa is a half-length portrait painting by Italian Renaissance artist Leonardo da Vinci."
+  },
+  {
+    "question": "What is the smallest planet in our solar system?",
+    "answer": "Mercury",
+    "context": "Mercury is the smallest planet in the Solar System and the closest to the Sun."
+  }
+]

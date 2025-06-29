@@ -1,0 +1,72 @@
+[
+  {
+    "symbol": "AAPL",
+    "company": "Apple Inc.",
+    "price": 175.25,
+    "change": 2.3,
+    "change_percent": 1.33,
+    "volume": 58942000,
+    "market_cap": 2750000000000,
+    "pe_ratio": 28.5,
+    "dividend_yield": 0.52,
+    "sector": "Technology",
+    "industry": "Consumer Electronics",
+    "description": "Apple Inc. designs, manufactures, and markets consumer electronics, computer software, and online services."
+  },
+  {
+    "symbol": "GOOGL",
+    "company": "Alphabet Inc.",
+    "price": 138.45,
+    "change": -1.2,
+    "change_percent": -0.86,
+    "volume": 42356000,
+    "market_cap": 1650000000000,
+    "pe_ratio": 24.2,
+    "dividend_yield": 0.0,
+    "sector": "Technology",
+    "industry": "Internet Content & Information",
+    "description": "Alphabet Inc. provides online advertising services and develops internet-related services and products."
+  },
+  {
+    "symbol": "MSFT",
+    "company": "Microsoft Corporation",
+    "price": 378.9,
+    "change": 4.75,
+    "change_percent": 1.27,
+    "volume": 35821000,
+    "market_cap": 2800000000000,
+    "pe_ratio": 32.1,
+    "dividend_yield": 0.75,
+    "sector": "Technology",
+    "industry": "Software—Infrastructure",
+    "description": "Microsoft Corporation develops and supports software, services, devices and solutions worldwide."
+  },
+  {
+    "symbol": "TSLA",
+    "company": "Tesla, Inc.",
+    "price": 248.5,
+    "change": -8.25,
+    "change_percent": -3.21,
+    "volume": 89234000,
+    "market_cap": 780000000000,
+    "pe_ratio": 45.8,
+    "dividend_yield": 0.0,
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Manufacturers",
+    "description": "Tesla, Inc. designs, develops, manufactures, leases, and sells electric vehicles, and energy generation and storage systems."
+  },
+  {
+    "symbol": "AMZN",
+    "company": "Amazon.com, Inc.",
+    "price": 142.8,
+    "change": 0.95,
+    "change_percent": 0.67,
+    "volume": 48567000,
+    "market_cap": 1450000000000,
+    "pe_ratio": 52.3,
+    "dividend_yield": 0.0,
+    "sector": "Consumer Cyclical",
+    "industry": "Internet Retail",
+    "description": "Amazon.com, Inc. engages in the retail sale of consumer products and subscriptions in North America and internationally."
+  }
+]

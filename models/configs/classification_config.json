@@ -1,0 +1,40 @@
+{
+  "model_name": "classification_config",
+  "description": "Text classification configuration with sentiment analysis focus",
+  "lm_config": {
+    "model": "openai/gpt-4o-mini",
+    "max_tokens": 500,
+    "temperature": 0.1,
+    "top_p": 0.9
+  },
+  "signatures": {
+    "classification_signature": {
+      "input_fields": ["text"],
+      "output_fields": ["sentiment", "confidence", "reasoning"],
+      "instructions": "Classify the sentiment of the text as positive, negative, or neutral. Provide confidence and reasoning."
+    }
+  },
+  "optimization": {
+    "method": "BootstrapFewShot",
+    "max_bootstrapped_demos": 8,
+    "max_labeled_demos": 15,
+    "metric": "f1_score"
+  },
+  "classes": ["positive", "negative", "neutral"],
+  "thresholds": {
+    "confidence_threshold": 0.7,
+    "decision_boundary": 0.5
+  },
+  "preprocessing": {
+    "lowercase": true,
+    "remove_punctuation": false,
+    "max_length": 512
+  },
+  "metadata": {
+    "created_by": "DSPy Tutorial Team",
+    "version": "1.0",
+    "created_date": "2024-01-15",
+    "use_case": "sentiment_analysis",
+    "tags": ["classification", "sentiment", "nlp"]
+  }
+}

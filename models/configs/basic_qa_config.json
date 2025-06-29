@@ -1,0 +1,44 @@
+{
+  "model_name": "basic_qa_config",
+  "description": "Basic question-answering configuration for educational examples",
+  "lm_config": {
+    "model": "openai/gpt-4o-mini",
+    "max_tokens": 1000,
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "signatures": {
+    "qa_signature": {
+      "input_fields": ["question", "context"],
+      "output_fields": ["answer", "confidence"],
+      "instructions": "Answer the question based on the provided context. Provide a confidence score between 0 and 1."
+    }
+  },
+  "optimization": {
+    "method": "BootstrapFewShot",
+    "max_bootstrapped_demos": 5,
+    "max_labeled_demos": 10,
+    "metric": "accuracy"
+  },
+  "evaluation": {
+    "test_size": 0.2,
+    "metrics": ["accuracy", "f1_score", "exact_match"],
+    "cross_validation": {
+      "enabled": true,
+      "folds": 5
+    }
+  },
+  "deployment": {
+    "environment": "development",
+    "caching": true,
+    "logging_level": "INFO",
+    "max_concurrent_requests": 10
+  },
+  "metadata": {
+    "created_by": "DSPy Tutorial Team",
+    "version": "1.0",
+    "created_date": "2024-01-15",
+    "compatible_dspy_version": "2.6.27+",
+    "tags": ["qa", "education", "basic"]
+  }
+}

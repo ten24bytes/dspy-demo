@@ -1,0 +1,54 @@
+{
+  "model_metadata": {
+    "name": "basic_qa_model",
+    "version": "1.0",
+    "description": "A basic question-answering model trained on general knowledge questions",
+    "created_date": "2024-01-15",
+    "model_type": "qa_system",
+    "framework": "dspy",
+    "dspy_version": "2.6.27"
+  },
+  "performance_metrics": {
+    "accuracy": 0.85,
+    "f1_score": 0.82,
+    "exact_match": 0.78,
+    "confidence_accuracy": 0.88,
+    "average_response_time_ms": 1200
+  },
+  "training_info": {
+    "dataset_size": 1000,
+    "optimization_method": "BootstrapFewShot",
+    "training_examples": 100,
+    "validation_examples": 200,
+    "optimization_iterations": 50,
+    "best_iteration": 35
+  },
+  "model_signature": {
+    "input_fields": {
+      "question": "str - The question to answer",
+      "context": "str - Relevant context information (optional)"
+    },
+    "output_fields": {
+      "answer": "str - The generated answer",
+      "confidence": "float - Confidence score between 0 and 1"
+    }
+  },
+  "usage_example": {
+    "code": "result = model(question='What is the capital of France?', context='France is a country in Europe')",
+    "expected_output": {
+      "answer": "Paris",
+      "confidence": 0.95
+    }
+  },
+  "limitations": [
+    "Best performance on factual questions",
+    "May struggle with highly technical or specialized topics",
+    "Requires clear, well-formed questions for optimal results"
+  ],
+  "recommended_use_cases": [
+    "Educational Q&A systems",
+    "General knowledge chatbots",
+    "FAQ automation",
+    "Information retrieval systems"
+  ]
+}

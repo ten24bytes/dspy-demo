@@ -1,0 +1,52 @@
+[
+  {
+    "id": "doc_001",
+    "title": "Company Overview",
+    "content": "TechCorp is a leading software development company founded in 2010. We specialize in artificial intelligence, machine learning, and cloud computing solutions. Our headquarters is located in San Francisco, California, with additional offices in New York, London, and Tokyo. We serve over 1000 clients worldwide and have a team of 500+ employees.",
+    "category": "company_info",
+    "metadata": {
+      "last_updated": "2024-01-15",
+      "department": "Corporate Communications"
+    }
+  },
+  {
+    "id": "doc_002",
+    "title": "Employee Benefits",
+    "content": "TechCorp offers comprehensive benefits including health insurance, dental and vision coverage, 401(k) with company matching, unlimited PTO, flexible work arrangements, professional development budget of $2000 per year, and stock options. We also provide free meals, gym membership, and mental health support.",
+    "category": "hr_policies",
+    "metadata": {
+      "last_updated": "2024-01-10",
+      "department": "Human Resources"
+    }
+  },
+  {
+    "id": "doc_003",
+    "title": "Remote Work Policy",
+    "content": "TechCorp supports flexible work arrangements. Employees can work remotely up to 3 days per week. Full remote work is available for certain roles with manager approval. All remote workers must maintain high-speed internet and have a dedicated workspace. Regular check-ins and team meetings are conducted via video conference.",
+    "category": "hr_policies",
+    "metadata": {
+      "last_updated": "2023-12-20",
+      "department": "Human Resources"
+    }
+  },
+  {
+    "id": "doc_004",
+    "title": "Product Portfolio",
+    "content": "Our flagship products include: 1) CloudAI Platform - an enterprise AI development platform, 2) DataAnalytics Pro - advanced data analytics and visualization tools, 3) SmartAutomation Suite - robotic process automation software, and 4) CyberSecure Shield - comprehensive cybersecurity solutions. All products are cloud-native and support enterprise-scale deployments.",
+    "category": "products",
+    "metadata": {
+      "last_updated": "2024-01-05",
+      "department": "Product Management"
+    }
+  },
+  {
+    "id": "doc_005",
+    "title": "Customer Support Procedures",
+    "content": "Customer support is available 24/7 through multiple channels: phone, email, live chat, and our customer portal. Priority levels are: Critical (1 hour response), High (4 hours), Medium (24 hours), and Low (72 hours). All support tickets are tracked in our CRM system. Escalation procedures are in place for unresolved issues.",
+    "category": "support",
+    "metadata": {
+      "last_updated": "2023-11-30",
+      "department": "Customer Success"
+    }
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "text": "I absolutely love this product! It exceeded all my expectations and works perfectly. Highly recommended!",
+    "sentiment": "positive",
+    "confidence": 0.95
+  },
+  {
+    "text": "This is the worst purchase I've ever made. Complete waste of money and doesn't work at all.",
+    "sentiment": "negative",
+    "confidence": 0.92
+  },
+  {
+    "text": "It's okay, nothing special but gets the job done. Average quality for the price.",
+    "sentiment": "neutral",
+    "confidence": 0.78
+  },
+  {
+    "text": "Amazing customer service! They resolved my issue quickly and professionally.",
+    "sentiment": "positive",
+    "confidence": 0.88
+  },
+  {
+    "text": "The delivery was late and the packaging was damaged. Very disappointed.",
+    "sentiment": "negative",
+    "confidence": 0.85
+  },
+  {
+    "text": "Good value for money. Works as described but could be improved.",
+    "sentiment": "neutral",
+    "confidence": 0.72
+  },
+  {
+    "text": "Outstanding quality! This product has changed my daily routine for the better.",
+    "sentiment": "positive",
+    "confidence": 0.94
+  },
+  {
+    "text": "Horrible experience. The product broke after just one day of use.",
+    "sentiment": "negative",
+    "confidence": 0.91
+  },
+  {
+    "text": "Decent product. It's functional but not particularly impressive.",
+    "sentiment": "neutral",
+    "confidence": 0.75
+  },
+  {
+    "text": "Fantastic! Exactly what I was looking for. Five stars!",
+    "sentiment": "positive",
+    "confidence": 0.97
+  }
+]
