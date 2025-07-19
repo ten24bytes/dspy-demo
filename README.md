@@ -122,7 +122,7 @@ uv run jupyter lab
 uv run python scripts/01_basics/getting_started.py
 
 # Run with additional arguments
-uv run python scripts/02_building/rag_system.py --model gpt-3.5-turbo
+uv run python scripts/02_building/rag_system.py --model gpt-4o
 ```
 
 #### Option 2: Activate Environment
