@@ -302,3 +302,6 @@ checkpoints/
 # DSPy specific
 dspy_cache/
 .dspy_cache/
+
+# Claude specific
+.claude/
