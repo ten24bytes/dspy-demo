@@ -3,7 +3,7 @@ name = "dspy-demo"
 version = "0.1.0"
 description = "A comprehensive DSPy sample project with examples and tutorials"
 readme = "README.md"
-requires-python = ">=3.12.11,<3.14"
+requires-python = ">=3.10,<3.15"
 authors = [
     {name = "DSPy Demo Project", email = "demo@dspy.ai"}
 ]
@@ -15,7 +15,11 @@ classifiers = [
     "Intended Audience :: Science/Research",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
@@ -24,7 +28,7 @@ dependencies = [
     "beautifulsoup4>=4.12.3",
     "chromadb>=0.5.0",
     "datasets>=3.0.0",
-    "dspy-ai>=2.5.28",
+    "dspy>=3.1.0",
     "email-validator>=2.2.0",
     "faiss-cpu>=1.8.0",
     "fastapi>=0.115.0",
@@ -97,7 +101,7 @@ members = ["."]
 
 [tool.black]
 line-length = 88
-target-version = ['py312']
+target-version = ['py310', 'py311', 'py312', 'py313', 'py314']
 include = '\.pyi?$'
 extend-exclude = '''
 /(
@@ -129,7 +133,7 @@ markers = [
 ]
 
 [tool.mypy]
-python_version = "3.12"
+python_version = "3.10"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true

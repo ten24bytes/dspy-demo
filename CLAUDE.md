@@ -7,9 +7,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This is a comprehensive DSPy demo project showcasing 30+ tutorials and examples for learning the DSPy framework. DSPy is a framework for building AI applications through "programming rather than prompting" - using signatures, modules, and optimizers to create robust LLM-powered programs.
 
 The project uses:
-- **Python 3.13.11** (requires >=3.12.11, <3.14)
+- **Python 3.10-3.14** (requires >=3.10, <3.15)
 - **UV package manager** for fast dependency management
-- **DSPy 2.5.28+** as the core framework
+- **DSPy 3.1.0** as the core framework (upgraded from 2.5.28)
 - Multiple LLM providers (OpenAI, Anthropic, Google, Groq)
 
 ## Common Commands
@@ -77,12 +77,15 @@ The project maintains **parallel implementations** of each tutorial:
 - **Scripts** (`scripts/`) - Standalone Python scripts for automation
 
 Both formats cover identical content and are organized into matching subdirectories:
-- `01_basics/` - Core DSPy concepts
-- `02_building/` - Building AI programs
-- `03_optimization/` - Optimization techniques
-- `04_advanced/` - Advanced features (RL optimization)
-- `05_deployment/` - Production deployment patterns
-- `06_real_world/` - Real-world examples
+- `01_fundamentals/` - Core DSPy concepts (renamed from `01_basics/`)
+- `02_core_modules/` - Built-in DSPy modules (Predict, ChainOfThought, Reasoning, etc.) **NEW**
+- `03_building_programs/` - Building AI programs (renamed from `02_building/`)
+- `04_optimization/` - Optimization techniques (renamed from `03_optimization/`)
+- `05_advanced/` - Advanced features (multimodal, adapters, usage tracking) (renamed from `04_advanced/`)
+- `06_deployment/` - Production deployment patterns (renamed from `05_deployment/`)
+- `07_real_world/` - Real-world examples (renamed from `06_real_world/`)
+
+**Note**: The old directory structure (`01_basics/`, `02_building/`, etc.) is still present for backward compatibility, but new work should use the updated structure above.
 
 ### Utility System
 
@@ -90,10 +93,12 @@ Both formats cover identical content and are organized into matching subdirector
 
 Key modules:
 - **`utils/__init__.py`**: LM configuration helpers and output formatting
-  - `setup_openai_lm()`, `setup_anthropic_lm()`, `setup_google_lm()` - Provider-specific LM setup
+  - `setup_openai_lm()`, `setup_anthropic_lm()`, `setup_google_lm()`, `setup_groq_lm()` - Provider-specific LM setup **UPDATED**
   - `setup_default_lm(provider="openai", **kwargs)` - Unified LM configuration
-  - `configure_dspy(lm=None, **kwargs)` - DSPy configuration wrapper
+  - `configure_dspy(lm=None, track_usage=False, adapter=None, **kwargs)` - DSPy configuration wrapper **UPDATED**
   - Color-coded terminal output: `print_step()`, `print_result()`, `print_error()`, `print_warning()`
+  - **DSPy 3.x helpers**: `get_usage_stats()`, `print_usage_stats()` - Usage tracking **NEW**
+  - **Adapter helpers**: `create_chat_adapter()`, `create_json_adapter()`, `create_xml_adapter()` **NEW**
 
 - **`utils/datasets.py`**: Sample dataset loaders
   - `get_sample_qa_data()` - Question-answering examples
@@ -205,8 +210,13 @@ if __name__ == "__main__":
 
 - All provider setup is centralized in `utils/__init__.py`
 - Use `setup_default_lm(provider="...")` for consistent configuration
-- Supported providers: "openai", "anthropic", "google"
-- Provider-specific functions available: `setup_openai_lm()`, `setup_anthropic_lm()`, `setup_google_lm()`
+- Supported providers: "openai", "anthropic", "google", "groq" **UPDATED**
+- Provider-specific functions available: `setup_openai_lm()`, `setup_anthropic_lm()`, `setup_google_lm()`, `setup_groq_lm()` **UPDATED**
+- Default models updated for DSPy 3.x:
+  - OpenAI: gpt-4o (unchanged)
+  - Anthropic: claude-3-5-sonnet-20241022 (upgraded from claude-3-haiku)
+  - Google: gemini-1.5-pro (upgraded from gemini-pro)
+  - Groq: llama-3.3-70b-versatile **NEW**
 
 ### Testing Changes
 
@@ -218,6 +228,120 @@ if __name__ == "__main__":
 ### Code Style
 
 - Project uses Black (line length 88) and isort for formatting
-- Python 3.13+ features are allowed (requires >=3.12.11, <3.14)
+- Python 3.10+ features are allowed (requires >=3.10, <3.15) **UPDATED**
 - Type hints preferred (MyPy configured in pyproject.toml)
 - Clear docstrings required for all modules and functions
+
+## DSPy 3.x Features and Updates
+
+### New in DSPy 3.1.0
+
+This project has been updated to DSPy 3.1.0 with the following new features:
+
+#### 1. Reasoning Module (`dspy.Reasoning`)
+- Native support for reasoning-capable models (OpenAI o1, Claude with thinking)
+- Captures and exposes model reasoning traces
+- See: `scripts/02_core_modules/05_reasoning.py`
+
+#### 2. Multimodal Support (`dspy.Image`, `dspy.Audio`)
+- First-class support for images and audio in signatures
+- Works with vision models (GPT-4o, Claude 3+, Gemini 1.5+)
+- See: `scripts/05_advanced/01_multimodal.py`
+
+#### 3. Adapters (`dspy.ChatAdapter`, `dspy.JSONAdapter`, `dspy.XMLAdapter`)
+- Control prompt formatting and output structure
+- ChatAdapter: For conversational interfaces
+- JSONAdapter: For structured JSON outputs
+- XMLAdapter: For XML-structured data
+- See: `scripts/05_advanced/02_adapters.py`
+
+#### 4. Advanced Optimizers
+- **GEPA**: Genetic-Pareto optimizer with reflective improvement
+- **SIMBA**: Self-reflective improvement rules
+- **MIPROv2**: Updated with Bayesian optimization
+- See: `scripts/04_optimization/03_gepa.py`
+
+#### 5. Usage Tracking
+- Built-in token and cost monitoring
+- Enable with `configure_dspy(track_usage=True)`
+- Access stats with `dspy.get_lm_usage()` or `get_usage_stats()`
+- See: `scripts/05_advanced/04_usage_tracking.py`
+
+#### 6. Updated APIs
+- Package name remains `dspy-ai` on PyPI (imports as `dspy`)
+- No breaking changes from 2.x to 3.x
+- All existing code continues to work
+- New features are additive
+
+### Migration from DSPy 2.x
+
+No code changes required! DSPy 3.x is backward compatible with 2.x.
+
+To take advantage of new features:
+1. Update pyproject.toml: `dspy>=3.1.0`
+2. Run: `uv sync`
+3. Start using new features as needed
+
+### New Module Patterns
+
+**Using Reasoning:**
+```python
+class ProblemSolver(dspy.Signature):
+    problem = dspy.InputField()
+    reasoning = dspy.OutputField()  # Captures model's reasoning
+    solution = dspy.OutputField()
+
+reasoner = dspy.Reasoning(ProblemSolver)
+result = reasoner(problem="Complex problem here")
+print(result.reasoning)  # View the reasoning process
+```
+
+**Using Multimodal:**
+```python
+class ImageAnalyzer(dspy.Signature):
+    image = dspy.InputField()
+    question = dspy.InputField()
+    answer = dspy.OutputField()
+
+analyzer = dspy.Predict(ImageAnalyzer)
+img = dspy.Image(path="photo.jpg")
+result = analyzer(image=img, question="What's in this image?")
+```
+
+**Using Adapters:**
+```python
+# Configure with JSON adapter for structured outputs
+json_adapter = dspy.JSONAdapter()
+configure_dspy(lm=lm, adapter=json_adapter)
+
+# Your modules now encourage JSON outputs
+```
+
+**Using Usage Tracking:**
+```python
+# Enable tracking
+configure_dspy(lm=lm, track_usage=True)
+
+# Make predictions
+result = predictor(input="...")
+
+# Check usage
+usage = get_usage_stats()
+print(f"Tokens used: {usage['total_tokens']}")
+print_usage_stats()  # Pretty-printed stats
+```
+
+### Updated Optimization Patterns
+
+**GEPA Optimizer:**
+```python
+optimizer = dspy.GEPA(
+    metric=my_metric,
+    population_size=15,
+    num_generations=7,
+    reflection_enabled=True
+)
+optimized = optimizer.compile(student=MyModule(), trainset=data)
+```
+
+See `docs/LEARNING_PATH.md` for a complete guide to learning DSPy 3.x features.
