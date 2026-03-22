@@ -132,25 +132,33 @@ The DSPy demo project has been successfully upgraded from DSPy 2.5.28 to DSPy 3.
 
 ---
 
-## 🔄 Pending Tasks (Lower Priority)
+## ✅ Additional Completed Tasks
 
-These tasks are nice-to-have improvements but not critical for the DSPy 3.x upgrade:
+### Fundamental Tutorials (scripts + notebooks)
+- ✅ Created `01_fundamentals/02_signatures` - Dedicated signatures deep dive
+- ✅ Created `01_fundamentals/03_modules` - Dedicated modules tutorial
+- ✅ Created `01_fundamentals/04_predictions` - Working with predictions
 
-### Additional Fundamental Tutorials
-- ⏳ Create `01_fundamentals/02_signatures.py` - Dedicated signatures deep dive
-- ⏳ Create `01_fundamentals/03_modules.py` - Dedicated modules tutorial
-- ⏳ Create `01_fundamentals/04_predictions.py` - Working with predictions
+### Core Modules Tutorials (scripts + notebooks)
+- ✅ Created `02_core_modules/01_predict` - Basic Predict module
+- ✅ Created `02_core_modules/02_chain_of_thought` - ChainOfThought deep dive
+- ✅ Created `02_core_modules/03_program_of_thought` - ProgramOfThought tutorial
+- ✅ Created `02_core_modules/04_react_agents` - ReAct agents tutorial
 
-### Core Modules Tutorials
-- ⏳ Create `02_core_modules/01_predict.py` - Basic Predict module
-- ⏳ Create `02_core_modules/02_chain_of_thought.py` - ChainOfThought deep dive
-- ⏳ Create `02_core_modules/03_program_of_thought.py` - ProgramOfThought tutorial
-- ⏳ Create `02_core_modules/04_react_agents.py` - ReAct agents tutorial
+### Notebook Counterparts for DSPy 3.x Tutorials
+- ✅ Created `notebooks/02_core_modules/05_reasoning.ipynb`
+- ✅ Created `notebooks/05_advanced/01_multimodal.ipynb`
+- ✅ Created `notebooks/05_advanced/02_adapters.ipynb`
+- ✅ Created `notebooks/04_optimization/03_gepa.ipynb`
+- ✅ Created `notebooks/05_advanced/04_usage_tracking.ipynb`
 
-### Enhancement Tasks
+### SIMBA Optimizer Tutorial (script + notebook)
+- ✅ Created `04_optimization/04_simba` - Self-reflective improvement optimizer
+
+## 🔄 Remaining Enhancement Tasks (Lower Priority)
+
 - ⏳ Add "What You'll Learn" sections to all existing notebooks
 - ⏳ Enhance existing scripts with more detailed comments
-- ⏳ Create SIMBA optimizer tutorial (currently only GEPA is done)
 - ⏳ Update existing optimization tutorials with DSPy 3.x best practices
 
 ---
@@ -168,8 +176,9 @@ These tasks are nice-to-have improvements but not critical for the DSPy 3.x upgr
 - Python Support: 3.10-3.14 (expanded) ✨
 - Tutorial Directories: 7 (restructured) ✨
 - Major Features: Basic + Reasoning + Multimodal + Adapters + GEPA/SIMBA + Usage Tracking ✨
-- New Tutorials: 5 comprehensive tutorials ✨
+- New Tutorials: 14 comprehensive tutorials (scripts + notebooks) ✨
 - New Documentation: LEARNING_PATH.md ✨
+- Complete dual-format coverage for all new features ✨
 
 ---
 
