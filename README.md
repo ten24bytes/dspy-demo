@@ -6,11 +6,6 @@ A comprehensive collection of DSPy tutorials, examples, and runnable code snippe
 
 This project contains implementations of all major DSPy tutorials and features, organized into notebooks and scripts for easy learning and experimentation. Each example is self-contained and includes detailed explanations.
 
-**✨ Recently Updated**: This project has been upgraded to **DSPy 3.1.0** with support for **Python 3.10-3.14**. The project now includes:
-- **New DSPy 3.x features**: Reasoning, Multimodal (Image/Audio), Adapters, GEPA & SIMBA optimizers, Usage Tracking
-- **Restructured learning path**: Beginner-friendly organization with dedicated sections for fundamentals and core modules
-- **Updated utilities**: Enhanced helpers for usage tracking, adapters, and multiple LLM providers (including Groq)
-
 The project uses [UV](https://docs.astral.sh/uv/) for fast, reliable dependency management and virtual environment handling.
 
 ## Key Features
@@ -19,7 +14,7 @@ The project uses [UV](https://docs.astral.sh/uv/) for fast, reliable dependency 
 - 🐍 **Python 3.10-3.14** - Broad Python version compatibility
 - 📦 **UV Package Manager** - Lightning-fast dependency resolution and installation
 - 🔒 **Locked Dependencies** - Reproducible builds with `uv.lock`
-- 📚 **40+ Examples** - Comprehensive tutorials covering all DSPy 3.x features
+- 📚 **35+ Examples** - Comprehensive tutorials covering all DSPy 3.x features
 - 🎓 **Beginner-Friendly** - Restructured learning path from fundamentals to advanced
 - 🔧 **Development Ready** - Pre-commit hooks, testing, and type checking included
 - 📖 **Dual Format** - Both Jupyter notebooks and Python scripts for each example
@@ -202,24 +197,25 @@ uv sync
 - **RAG Systems** - Retrieval-Augmented Generation
 - **Classification** - Text classification tasks
 - **Entity Extraction** - Named entity recognition
-- **Multi-Stage Pipelines** - Complex workflows
-- **Customer Service Agent** - Building intelligent agents
+- **Agents** - Building intelligent agents
+- **Customer Service Agent** - Specialized service agents
 - **Image Generation** - Prompt iteration for images
 - **Audio Processing** - Speech and audio tasks
+- **Privacy-Conscious Delegation** - Safe task delegation patterns
 
 ### 4. Optimization (Performance)
 
-- **BootstrapFewShot** - Quick optimization
-- **MIPROv2** - Bayesian optimization (UPDATED for 3.x)
 - **GEPA** - Genetic-Pareto optimization 🆕 NEW in 3.x!
 - **SIMBA** - Self-reflective improvement 🆕 NEW in 3.x!
-- **Finetuning** - Model fine-tuning
+- **Advanced Tool Use** - Tool-augmented optimization
+- **Classification Finetuning** - Model fine-tuning for classification
+- **Math Reasoning** - Mathematical problem-solving optimization
 
 ### 5. Advanced Features (Cutting Edge)
 
 - **Multimodal** - Images and audio 🆕 NEW in 3.x!
 - **Adapters** - ChatAdapter, JSONAdapter, XMLAdapter 🆕 NEW in 3.x!
-- **Async & Batch** - Performance optimization
+- **Agents** - Advanced agent patterns
 - **Usage Tracking** - Monitor costs and usage 🆕 NEW in 3.x!
 - **Multi-Hop RAG** - Advanced RAG techniques
 - **RL Optimization** - Reinforcement learning approaches
@@ -229,7 +225,7 @@ uv sync
 - **Saving/Loading** - Model persistence (updated for 3.x)
 - **Streaming** - Real-time processing
 - **Caching** - Performance optimization
-- **Production Tips** - Best practices
+- **Async Operations** - Asynchronous processing
 - **MCP Integration** - Model Context Protocol
 - **Output Refinement** - Best-of-N techniques
 
@@ -238,8 +234,6 @@ uv sync
 - **Financial Analysis** - Yahoo Finance integration
 - **Email Extraction** - Email information processing
 - **AI Text Game** - Creative text-based games
-- **Code Generation** - Automated code creation
-- **Memory-Enabled Agents** - Persistent memory systems
 
 ## 📚 Learning Path
 
@@ -396,37 +390,13 @@ uv sync --reinstall
   - NumPy: 2.0.0+
   - Pandas: 2.2.0+
 
-### Recent Updates (v3.0)
-
-This project was upgraded to **DSPy 3.1.0** with:
-
-✨ **New Features**:
-- Reasoning module for o1/Claude thinking models
-- Multimodal support (Image/Audio)
-- Adapters (Chat/JSON/XML)
-- GEPA and SIMBA optimizers
-- Built-in usage tracking
-
-📁 **Restructured**:
-- Beginner-friendly learning progression
-- Dedicated core modules section
-- Updated fundamentals tutorials
-
-🔧 **Enhanced**:
-- Groq provider support
-- Updated model defaults (Claude 3.5 Sonnet, Gemini 1.5 Pro)
-- Usage tracking utilities
-- Adapter helper functions
-
-See [`docs/LEARNING_PATH.md`](docs/LEARNING_PATH.md) and [`CLAUDE.md`](CLAUDE.md) for more details.
-
 ## Contributing
 
 Feel free to submit issues and enhancement requests!
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License.
 
 ## Acknowledgments
 
