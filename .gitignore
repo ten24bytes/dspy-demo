@@ -306,5 +306,5 @@ dspy_cache/
 # Claude specific
 .claude/
 
-# repowise API keys (local)
-.repowise/.env
+# repowise (local cache, not committed per docs)
+.repowise/
